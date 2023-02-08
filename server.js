@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 const app = require('./index.js');
 
 
-dotenv.config({path: './config.env'});
+dotenv.config({path: './configFile.env'});
 
 const DB = process.env.MONGO.replace(
     '<PASSWORD>',
