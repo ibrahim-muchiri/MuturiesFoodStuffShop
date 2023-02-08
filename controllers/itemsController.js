@@ -11,12 +11,13 @@ exports.getItems = async(req, res, next) =>{
     })
 }
 exports.createItem = async(req, res, next) =>{
-    const product = await Item.create(req.body);
+    const item = await Item.create({...req.body});
+    // console.log(product);
 
     res.status(201).json({
         status: 'created',
         data: {
-            product
+            item
         }
     })
     next();
