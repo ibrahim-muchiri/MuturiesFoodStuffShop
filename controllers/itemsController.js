@@ -1,6 +1,7 @@
 const Item = require('../models/itemsModel');
+const catchAsync = require("../utils/catchAsync");
 
-exports.getItems = async(req, res, next) =>{
+exports.getItems = catchAsync(async(req, res, next) =>{
     const products = await Item.find();
 
     res.status(200).json({
@@ -9,10 +10,12 @@ exports.getItems = async(req, res, next) =>{
             products
         }
     })
-}
-exports.createItem = async(req, res, next) =>{
-    const item = await Item.create(req.body);
-    // console.log(product);
+})
+
+
+
+exports.createItem = catchAsync(async(req, res, next) =>{
+    const item = await Item.create(req.body);    
 
     res.status(201).json({
         status: 'created',
@@ -20,5 +23,5 @@ exports.createItem = async(req, res, next) =>{
             item
         }
     })
-    next();
-}
+    next(err);
+})

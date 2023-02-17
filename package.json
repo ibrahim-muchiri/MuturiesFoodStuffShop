@@ -4,7 +4,8 @@
   "description": "Application using Nodejs, expressjs and mongodb",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "start:prod": "NODE_ENV=production nodemon server.js"
   },
   "author": "Muchiri Ibrahim",
   "license": "ISC",
